@@ -1,0 +1,98 @@
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! scrollback buffer
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! scroll bar
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
+! disable printing
+URxvt.print-pipe: "cat > /dev/null"
+
+! perl extensions
+! AUR: urxvt-fullscreen, urxvt-resize-font-git
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,url-select,tabbed
+
+! default
+URxvt.url-launcher: /usr/bin/xdg-open
+
+! matcher
+URxvt.matcher.button: 1
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+URxvt.colorUL: #4682B4
+
+! selection-to-clipboard
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+! tabbed
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+! fonts
+#define font1         BerkeleyMono NFM
+#define font2         FiraCode NFM
+#define font3         DejaVu Sans Mono
+#define font4         Noto Sans Mono CJK KR
+
+URxvt.font:           xft:font1:size=12, xft:font2:size=12:minspace=false, xft:font3:size=12,xft:font4:size=12
+URxvt.boldFont:       xft:font1:bold:size=12, xft:font2:size=12:minspace=False,xft:font3:size=12,xft:font4:size=12
+URxvt.italicFont:     xft:font1:italic:size=12, xft:font2:size=12:minspace=False,xft:font3:size=12,xft:font4:size=12
+URxvt.boldItalicFont: xft:font1:bold:italic:size=12, xft:font2:size=12:minspace=False, xft:font3:size=12, xft:font4:size=12
+
+URxvt.letterSpace: -1
+
+! -----------------------------------------------------------------------------
+! File: gruvbox-dark.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
+
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
