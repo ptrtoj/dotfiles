@@ -1,8 +1,8 @@
 [user]
 	name = WooHyung Jeon
 	username = jeon
-	email = mail@staticintj.com
-	signingkey = DE1D26814743C62D1841EC30C963BD53CD5B4B2A
+	email = jeon@ptrtoj.com
+	signingkey = 55D05C3B9506800FE31A50BBF2426E1EB1192CF7
 [pull]
 	rebase = true
 [rebase]
@@ -11,7 +11,6 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [delta]
 	line-numbers = true
-	syntax-theme = gruvbox-dark
 	side-by-side = false
 	file-modified-label = modified:
 [commit]

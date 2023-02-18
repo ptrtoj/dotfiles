@@ -104,25 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # personal configuration
 #
 
-export GPG_TTY=$(tty)
-export PATH="$HOME/.local/bin:$PATH"
+#export GPG_TTY=$(tty)
+#export PATH="$HOME/.local/bin:$PATH"
 
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
 export VISUAL="nvim"
 export EDITOR="nvim"
 
-alias e="emacs -nw"
-
+#alias e="emacs -nw"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-
-# FreeBSD ibus requires below
-export XIM=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export XIM_PROGRAM="ibus-daemon"
-export XIM_ARGS="--daemonize --xim"
-
