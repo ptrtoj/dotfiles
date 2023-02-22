@@ -13,7 +13,7 @@ C-M-\ ;; runs the command indent-region
 *** User Info
 #+begin_src elisp
   (setq user-full-name "WooHyung Jeon"
-	user-mail-address "mail@staticintj.com")
+	user-mail-address "jeon@ptrtoj.com")
 #+end_src
 
 *** Garbage Collection
