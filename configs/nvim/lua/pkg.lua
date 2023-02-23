@@ -12,7 +12,52 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+  -- Package Manager itself
   use 'wbthomason/packer.nvim'
+
+  use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
+  -- Dependency for 'telescope'
+  use 'nvim-lua/plenary.nvim'
+  -- Requires system package 'ripgrep'
+  -- And then, do ':checkhealth telescope'
+  use 'nvim-telescope/telescope.nvim'
+
+  use {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v1.x',
+      requires = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},             -- Required
+          -- Requires system package
+          -- 'git', 'curl || wget', 'unzip', 'tar', 'gzip'
+          -- And then, do ':checkhealth mason'
+          {'williamboman/mason.nvim'},           -- Optional
+          {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},         -- Required
+          {'hrsh7th/cmp-nvim-lsp'},     -- Required
+          {'hrsh7th/cmp-buffer'},       -- Optional
+          {'hrsh7th/cmp-path'},         -- Optional
+          {'saadparwaiz1/cmp_luasnip'}, -- Optional
+          {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+          -- Snippets
+          {'L3MON4D3/LuaSnip'},             -- Required
+          {'rafamadriz/friendly-snippets'}, -- Optional
+      }
+  }
+
+  -- Dependency for 'nvim-tree', 'lualine'
+  use 'nvim-tree/nvim-web-devicons'
+
+  -- UI & Themes
+  use 'nvim-tree/nvim-tree.lua'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use 'shaunsingh/nord.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
