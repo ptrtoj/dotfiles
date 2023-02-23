@@ -15,3 +15,6 @@
 	file-modified-label = modified:
 [commit]
 	gpgsign = true
+# Windows
+#[gpg]
+#	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
