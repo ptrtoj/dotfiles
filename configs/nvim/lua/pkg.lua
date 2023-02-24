@@ -17,11 +17,10 @@ return require('packer').startup(function(use)
 
   use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
-  -- Dependency for 'telescope'
-  use 'nvim-lua/plenary.nvim'
+  use
   -- Requires system package 'ripgrep'
   -- And then, do ':checkhealth telescope'
-  use 'nvim-telescope/telescope.nvim'
+  use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'}}}
 
   use {
       'VonHeikemen/lsp-zero.nvim',
@@ -49,13 +48,11 @@ return require('packer').startup(function(use)
       }
   }
 
-  -- Dependency for 'nvim-tree', 'lualine'
-  use 'nvim-tree/nvim-web-devicons'
-
   -- UI & Themes
-  use 'nvim-tree/nvim-tree.lua'
+  use {'nvim-tree/nvim-tree.lua', requires = {{ 'nvim-tree/nvim-web-devicons'}}}
+  use {'nvim-lualine/lualine.nvim', requires = {{ 'nvim-tree/nvim-web-devicons'}}}
+
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'nvim-lualine/lualine.nvim'
   use 'shaunsingh/nord.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
