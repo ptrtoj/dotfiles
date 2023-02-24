@@ -47,7 +47,23 @@ return require('packer').startup(function(use)
       }
   }
 
+  use {
+      "folke/which-key.nvim",
+      config = function()
+          vim.o.timeout = true
+          vim.o.timeoutlen = 300
+      end
+  }
+ 
   -- UI & Themes
+  use {
+      "startup-nvim/startup.nvim",
+      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+      config = function()
+          require"startup".setup()
+      end
+  }
+
   use {'nvim-tree/nvim-tree.lua', requires = {{ 'nvim-tree/nvim-web-devicons'}}}
   use {'nvim-lualine/lualine.nvim', requires = {{ 'nvim-tree/nvim-web-devicons'}}}
 
