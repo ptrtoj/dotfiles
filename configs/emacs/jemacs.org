@@ -1,8 +1,8 @@
 #+TITLE: JEMACS
 #+PROPERTY: header-args:elisp :tangle ~/.config/emacs/init.el :mkdirp yes
-#+STARTUP: show2levels
+#+STARTUP: show3levels
 
-* Jeon's Extreme Minimal Alt + Ctrl + Shift
+* Jeon's Extreme Minimal ALT + CTRL + SHIFT (v2)
 ** Defaults
 *** Tips & Tricks
 #+begin_src ascii :tangle no
@@ -24,14 +24,19 @@ C-M-\ ;; runs the command indent-region
 
 *** Startup Hook
 #+begin_src elisp
-  (defun jeon/display-startup-time ()
+  (defun ptrtoj/display-startup-time ()
     (message "Emacs loaded in %s with %d garbage collections."
 	     (format "%.2f seconds"
 		     (float-time
 		      (time-subtract after-init-time before-init-time)))
 	     gcs-done))
 
-  (add-hook 'emacs-startup-hook #'jeon/display-startup-time)
+  (add-hook 'emacs-startup-hook #'ptrtoj/display-startup-time)
+#+end_src
+
+** Before Save Hook
+#+begin_src elisp
+  (add-hook 'before-save-hook 'whitespace-cleanup)
 #+end_src
 
 *** Recent files
@@ -68,12 +73,12 @@ C-M-\ ;; runs the command indent-region
 *** Transparency
 #+begin_src elisp
   ;; Make frame transparency overridable
-  (defvar jeon/frame-transparency '(90 . 80))
+  (defvar ptrtoj/frame-transparency '(90 . 80))
 
   ;; Set frame transparency
   ;; Also works with Gnome/Xorg
-  (set-frame-parameter (selected-frame) 'alpha jeon/frame-transparency)
-  (add-to-list 'default-frame-alist `(alpha . ,jeon/frame-transparency))
+  (set-frame-parameter (selected-frame) 'alpha ptrtoj/frame-transparency)
+  (add-to-list 'default-frame-alist `(alpha . ,ptrtoj/frame-transparency))
   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
 #+end_src
@@ -91,13 +96,6 @@ C-M-\ ;; runs the command indent-region
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
   (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-#+end_src
-
-*** Fonts
-#+begin_src elisp
-  (set-face-attribute 'default nil :font "BerkeleyMono NFM" :height 90)
-  (set-face-attribute 'fixed-pitch nil :font "BerkeleyMono NFM" :height 90)
-  (set-face-attribute 'variable-pitch nil :font "BerkeleyMono NFM" :height 90)
 #+end_src
 
 ** Plugins
@@ -124,6 +122,30 @@ C-M-\ ;; runs the command indent-region
   (straight-use-package 'use-package)
 #+end_src
 
+*** Evil
+#+begin_src elisp
+  (use-package evil
+	       :straight t
+	       :config
+	       (evil-mode 1))
+#+end_src
+
+*** Nord Theme
+#+begin_src elisp
+  (use-package nord-theme
+    :straight t
+    :config
+    (load-theme 'nord t))
+#+end_src
+
+*** Which-key
+#+begin_src elisp
+  (use-package which-key
+    :straight t
+    :config
+    (which-key-mode)
+    (setq which-key-idle-delay 0.1))
+#+end_src
 *** All-the-icons
 #+begin_src elisp
   (use-package all-the-icons
@@ -167,20 +189,11 @@ C-M-\ ;; runs the command indent-region
     (doom-modeline-mode 1))
 #+end_src
 
-*** Evil
-#+begin_src elisp
-  (use-package evil
-    :straight t
-    :config
-    (evil-mode 1))
-#+end_src
-
 *** Fly-check
 #+begin_src elisp
   (use-package flycheck
     :straight t
-    :hook
-    (after-init . #'global-flycheck-mode))
+    :init (global-flycheck-mode))
 #+end_src
 
 *** Helm
@@ -195,12 +208,6 @@ C-M-\ ;; runs the command indent-region
     (helm-mode 1))
 #+end_src
 
-*** Helm-LSP
-#+begin_src elisp
-  (use-package helm-lsp
-  :straight t)
-#+end_src
-
 *** LSP
 #+begin_src elisp
   (use-package lsp-mode
@@ -213,6 +220,13 @@ C-M-\ ;; runs the command indent-region
 	 ;; if you want which-key integration
 	 (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
+#+end_src
+
+*** Helm-LSP
+#+begin_src elisp
+  (use-package helm-lsp
+  :straight t
+  :commands helm-lsp-workspace-symbol)
 #+end_src
 
 *** LSP-UI
@@ -246,14 +260,6 @@ C-M-\ ;; runs the command indent-region
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 #+end_src
 
-*** Nord Theme
-#+begin_src elisp
-  (use-package nord-theme
-    :straight t
-    :config
-    (load-theme 'nord t))
-#+end_src
-
 *** Org-bullets
 #+begin_src elisp
   (use-package org-bullets
@@ -278,7 +284,7 @@ C-M-\ ;; runs the command indent-region
   (use-package rainbow-delimiters
     :straight t
     :hook
-    (org-mode . #'rainbow-delimiters-mode))
+    ('org-mode-hook . #'rainbow-delimiters-mode))
 #+end_src
 
 *** Smartparens
@@ -287,18 +293,4 @@ C-M-\ ;; runs the command indent-region
     :straight t
     :hook
     (minibuffer-setup . #'turn-on-smartparens-strict-mode))
-#+end_src
-
-*** Which-key
-#+begin_src elisp
-  (use-package which-key
-    :straight t
-    :config
-    (which-key-mode)
-    (setq which-key-idle-delay 0.1))
-#+end_src
-
-** Before Save Hook
-#+begin_src elisp
-  (add-hook 'before-save-hook 'whitespace-cleanup)
 #+end_src
