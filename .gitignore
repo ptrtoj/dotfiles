@@ -1,2 +1,6 @@
+# Emacs
 *~
 .\#*
+
+# Neovim
+plugin/packer_compiled.lua
