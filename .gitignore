@@ -3,4 +3,4 @@
 .\#*
 
 # Neovim
-plugin/packer_compiled.lua
+nvim/.config/plugin/
