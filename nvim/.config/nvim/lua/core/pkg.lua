@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
     use {
         "windwp/nvim-autopairs",
         config = function() 
-            require("autopairs").setup()
+            require("nvim-autopairs").setup()
         end
     }
     -- Smart comment plugin

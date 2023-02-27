@@ -3,4 +3,4 @@ emacs/.config/emacs/*
 !emacs/.config/emacs/jemacs.org
 
 # Neovim
-nvim/.config/plugin/
+nvim/.config/nvim/plugin/
