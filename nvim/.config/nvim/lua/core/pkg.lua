@@ -78,10 +78,20 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
 
     -- Useful utils.
+    -- Automatically insert 'parens'
     use {
         "windwp/nvim-autopairs",
         config = function() require("configs.autopairs")end
     }
+    -- Smart comment plugin
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+
+    }
+
     -- Default colors are bad :/
     use {
         "shaunsingh/nord.nvim"
