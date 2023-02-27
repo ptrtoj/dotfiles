@@ -17,7 +17,9 @@ return require('packer').startup(function(use)
     use {
         "nvim-tree/nvim-tree.lua", 
         requires = { "nvim-tree/nvim-web-devicons" },
-        config = function() require("configs.nvim-tree") end
+        config = function() 
+            require("nvim-tree").setup()
+        end
     }
 
     -- Now want to setup some 'key-binding' to open nvim-tree
@@ -40,7 +42,9 @@ return require('packer').startup(function(use)
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
         requires = { "nvim-lua/plenary.nvim" },
-        config = function() require("configs.telescope") end
+        config = function() 
+            require("telescope").setup()
+        end
     }
 
     -- Completion & snippets
@@ -81,7 +85,9 @@ return require('packer').startup(function(use)
     -- Automatically insert 'parens'
     use {
         "windwp/nvim-autopairs",
-        config = function() require("configs.autopairs")end
+        config = function() 
+            require("autopairs").setup()
+        end
     }
     -- Smart comment plugin
     use {
@@ -115,7 +121,9 @@ return require('packer').startup(function(use)
     use {
         "TimUntersberger/neogit",
         requires = "nvim-lua/plenary.nvim",
-        config = function() require("configs.neogit") end
+        config = function() 
+            require("neogit").setup()
+        end
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
