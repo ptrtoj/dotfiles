@@ -85,7 +85,8 @@ return require('packer').startup(function(use)
     -- And want some fancy status line :)
     use {
         "nvim-lualine/lualine.nvim", 
-        requires = { "nvim-tree/nvim-web-devicons" }
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function() require("configs.lualine") end
     }
 
     -- Also, add indent indicator
