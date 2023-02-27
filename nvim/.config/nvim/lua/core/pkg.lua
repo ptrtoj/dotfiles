@@ -77,6 +77,11 @@ return require('packer').startup(function(use)
 
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
 
+    -- Useful utils.
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("configs.autopairs")end
+    }
     -- Default colors are bad :/
     use {
         "shaunsingh/nord.nvim"
