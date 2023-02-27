@@ -1,5 +1,5 @@
-local treesitter_status_ok, treesitter = pcall(require, "nvim-treesitter")
-if not treesitter_status_ok then
+local ok, treesitter = pcall(require, "nvim-treesitter")
+if not ok then
     print ("treesitter_plugin_err")
     return
 end

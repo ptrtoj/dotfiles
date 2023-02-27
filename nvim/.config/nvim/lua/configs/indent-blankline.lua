@@ -1,5 +1,5 @@
-local ib_status_ok, ib = pcall(require, "indent_blankline")
-if not ib_status_ok then
+local ok, ib = pcall(require, "indent_blankline")
+if not ok then
     print ("ib_plugin_err")
     return
 end

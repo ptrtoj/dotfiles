@@ -1,10 +1,12 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+    print ("cmp_plugin_err")
     return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
+local ok, luasnip = pcall(require, "luasnip")
+if not ok then
+    print ("luasnip_plugin_err")
     return
 end
 

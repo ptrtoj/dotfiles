@@ -1,6 +1,6 @@
-local ts_status_ok, ts = pcall(require, "telescope")
-if not ts_status_ok then
-    prits ("ts_plugin_err")
+local ok, ts = pcall(require, "telescope")
+if not ok then
+    prits ("telescope_plugin_err")
     return
 end
 

@@ -1,5 +1,5 @@
-local ll_status_ok, ll = pcall(require, "lualine")
-if not ll_status_ok then
+local ok, ll = pcall(require, "lualine")
+if not ok then
     print ("ll_plugin_err")
     return
 end

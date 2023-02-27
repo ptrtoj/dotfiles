@@ -1,5 +1,5 @@
-local whichkey_status_ok, whichkey = pcall(require, "which-key")
-if not whichkey_status_ok then
+local ok, whichkey = pcall(require, "which-key")
+if not ok then
     print ("whichkey_plugin_err")
     return
 end
