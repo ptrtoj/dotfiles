@@ -137,12 +137,6 @@ Need to know keys :/
     (which-key-mode))
 #+end_src
 
-**** vterm
-For a better teminal
-#+begin_src elisp
-  (use-package vterm)
-#+end_src
-
 *** Git
 Yeah! Emacs Git Package!
 #+begin_src elisp
