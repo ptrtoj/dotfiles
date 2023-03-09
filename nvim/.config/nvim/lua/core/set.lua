@@ -1,4 +1,3 @@
-
 vim.o.mouse = "a"
 vim.o.guicursor = ""
 
